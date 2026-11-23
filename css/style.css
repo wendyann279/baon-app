@@ -1,0 +1,430 @@
+
+/* BAON styles — mobile-first, intrinsic layout. MIT */
+
+:root {
+  --ink: #151A3B;
+  --lime: #C6F432;
+  --coral: #FF6B57;
+  --violet: #6C5CE7;
+  --bg: #F4F3FF;
+  --muted: #6B6F8A;
+  --line: #E2E1F5;
+  --radius: 18px;
+  --gap: clamp(0.75rem, 2.5vw, 1.25rem);
+
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
+}
+
+/* ---- top bar ---- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:
+    calc(0.75rem + env(safe-area-inset-top))
+    var(--gap)
+    0.75rem;
+  background: var(--ink);
+  color: white;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.logo span {
+  color: var(--lime);
+}
+
+.chip {
+  font: inherit;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  border-radius: 99px;
+  padding: 0.45rem 0.9rem;
+  background: var(--lime);
+  color: var(--ink);
+}
+
+/* ---- layout ---- */
+
+.view {
+  display: grid;
+  gap: var(--gap);
+  padding: var(--gap);
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.view:focus {
+  outline: none;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.stats {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.stat b {
+  display: block;
+  font-size: 1.3rem;
+}
+
+/* ---- cards ---- */
+
+.card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  box-shadow: 0 4px 18px rgb(21 26 59 / 0.08);
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.hero {
+  background: var(--ink);
+  color: white;
+}
+
+.hero .muted {
+  color: #B9BCE0;
+}
+
+.hero .big {
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 800;
+  margin: 0.2rem 0;
+}
+
+.bar {
+  height: 12px;
+  border-radius: 99px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 0.15);
+  margin-bottom: 0.5rem;
+}
+
+.bar > i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--lime);
+}
+
+.status-warning .big {
+  color: #FFD166;
+}
+
+.status-warning .bar > i {
+  background: #FFD166;
+}
+
+.status-over .big {
+  color: var(--coral);
+}
+
+.status-over .bar > i {
+  background: var(--coral);
+}
+
+/* ---- lists ---- */
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.item .emoji {
+  font-size: 1.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  border-radius: 12px;
+}
+
+.item .grow small {
+  color: var(--muted);
+  display: block;
+}
+
+.item .amt {
+  font-weight: 700;
+}
+
+.del {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.catbar {
+  height: 8px;
+  border-radius: 99px;
+  margin-top: 4px;
+  background: var(--bg);
+}
+
+.catbar > i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--violet);
+}
+
+/* ---- forms ---- */
+
+form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+legend {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+input,
+select {
+  font: inherit;
+  width: 100%;
+  min-width: 0;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: white;
+  color: var(--ink);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--violet);
+}
+
+.amount-input {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.cats {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cats input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.cats label {
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--bg);
+  padding: 0.6rem 0.2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+}
+
+.cats input:checked + label {
+  border-color: var(--violet);
+  background: #EAE7FF;
+}
+
+.cats input:focus-visible + label {
+  outline: 3px solid var(--lime);
+}
+
+.errors {
+  color: var(--coral);
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.errors:empty {
+  display: none;
+}
+
+/* ---- buttons ---- */
+
+.btn {
+  font: inherit;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  background: var(--ink);
+  color: white;
+}
+
+.btn.lime {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--line);
+}
+
+/* ---- bottom tab bar ---- */
+
+.tabbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  background: white;
+  border-top: 1px solid var(--line);
+  padding:
+    0.4rem 0.5rem
+    calc(0.4rem + env(safe-area-inset-bottom));
+}
+
+.tabbar a {
+  display: grid;
+  justify-items: center;
+  padding: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.tabbar a span {
+  font-size: 1.2rem;
+}
+
+.tabbar a.active {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.tabbar .fab {
+  justify-self: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-top: -26px;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  background: var(--lime);
+  color: var(--ink);
+  box-shadow: 0 6px 16px rgb(21 26 59 / 0.25);
+}
+
+/* ---- toast ---- */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(90px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  max-width: calc(100% - 2rem);
+  padding: 0.7rem 1rem;
+  background: var(--ink);
+  color: white;
+  border-radius: 12px;
+}
+
+.toast[hidden] {
+  display: none;
+}
+
+.toast button {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.35rem 0.7rem;
+  background: var(--lime);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---- installed (standalone) mode ---- */
+
+@media (display-mode: standalone) {
+  #installBtn {
+    display: none;
+  }
+}
+
+/* ---- larger screens: tab bar becomes a pill ---- */
+
+@media (min-width: 900px) {
+  .tabbar {
+    inset: auto 50% 1rem auto;
+    transform: translateX(50%);
+    width: 480px;
+    border-radius: 99px;
+    border: 1px solid var(--line);
+  }
+}
